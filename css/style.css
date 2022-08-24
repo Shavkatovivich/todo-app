@@ -1,0 +1,241 @@
+:root {
+    --dark: #374151;
+    --darker: #1f2937;
+    --darkest: #111827;
+    --light: #eee;
+    --pink: #ec4899;
+    --purple: #8b5cf6;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family:"Fira sans" serif;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--dark);
+    color: #fff;
+}
+
+ul, ol {
+    list-style-type: none;
+}
+
+header {
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: gray;
+}
+
+#new-task-form {
+    display: flex;
+}
+
+input, button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    color: #fff;
+}
+
+#new-task-input {
+    flex: 1 1 0%;
+    background-color: var(--darker);
+    padding: 1rem;
+    margin-right: 1rem;
+    color: var(--light);
+    font-size: 1.2em;
+    border-radius: 7px;
+}
+
+
+#new-task-input::placeholder {
+    color: gray;
+}
+
+#new-task-submit {
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 700;
+    background-color: #1f2937;
+    cursor: pointer;
+    transition: 1s;
+    width: 200px;
+    height: 50px;
+    border-radius: 7px;
+    border: 3px solid #1f2937;
+}
+
+#new-task-submit:hover {
+    background-color: #fff;
+    color: #111827;
+    border: 3px solid #1f2937;
+}
+
+main {
+    flex: 1 1 0%;
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+.task-list {
+    padding: 0.4rem;
+    width: 550px;
+    height: 400px;
+    overflow-y: scroll;
+    background-color: #fff;
+    border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    color: #111827;
+  }
+
+ ::-webkit-scrollbar-thumb {
+    background: #1f2937;
+    border-radius: 30px;
+    height: 100px;
+  }
+
+
+.task-list h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: gray;
+    margin-bottom: 1rem;
+}
+
+#tasks .task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--darkest);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+#tasks .task .content  {
+    flex: 1 1 2 0%;
+}
+
+#tasks .task .content .text {
+    color: var(--light);
+    font-size: 1.1rem;
+    width: 100%;
+    transition: 1s;
+}
+
+#tasks .task .content .text:not(:read-only)  {
+    color: var(--pink);
+}
+
+#tasks .task .actions {
+    display: flex;
+    margin: 0 -0.5rem;
+}
+
+.task .actions button {
+    cursor: pointer;
+    margin: 0 0.5rem;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 1s;
+}
+
+.task .actions button:hover {
+    opacity: 0.8;
+}
+
+.task .actions button:active {
+    opacity: 0.6;
+}
+
+.task .actions .edit {
+    background-color: linear-gradient(to right, var(--pink),
+    var(--purple));
+}
+
+.task .actions .delete {
+    color: crimson;
+}
+
+@media(max-width:620px) {
+    .task-list {
+        width: 480px;
+    }
+}
+
+@media(max-width:520px) {
+
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .task-list {
+        width: 400px;
+    }
+
+    #new-task-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #new-task-input {
+        width: 300px;
+        margin-right: 0px
+    }
+
+
+    #new-task-submit {
+        width: 300px;
+        margin-top: 10px;
+    }
+
+    #tasks .task {
+        flex-direction: column;
+    }
+
+    .task .actions button {
+        font-size: 13px;
+    }
+
+    .task .actions .edit  {
+        width: 100px;
+        height: 30px;
+        background-color: #1f2937;
+        transform: translateY(15px);
+        border-radius: 5px;
+    }
+
+    .task .actions .delete {
+        width: 100px;
+        height: 30px;
+        background-color: #1f2937;
+        transform: translateY(15px);
+        border-radius: 5px;
+    }
+}
